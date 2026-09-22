@@ -1,0 +1,42 @@
+[
+  {
+    "id": "task-homepage-illustrations",
+    "title": "Finalize homepage illustrations",
+    "project": "Website redesign",
+    "due": "today",
+    "priority": "high",
+    "status": "open",
+    "assignee": "JM",
+    "createdAt": "2026-09-22T08:00:00.000Z"
+  },
+  {
+    "id": "task-onboarding-flows",
+    "title": "Review onboarding user flows",
+    "project": "Mobile app",
+    "due": "today",
+    "priority": "medium",
+    "status": "open",
+    "assignee": "SK",
+    "createdAt": "2026-09-22T08:10:00.000Z"
+  },
+  {
+    "id": "task-retro",
+    "title": "Prepare sprint retrospective",
+    "project": "Team operations",
+    "due": "today",
+    "priority": "low",
+    "status": "open",
+    "assignee": "AD",
+    "createdAt": "2026-09-22T08:20:00.000Z"
+  },
+  {
+    "id": "task-product-update",
+    "title": "Write Q3 product update",
+    "project": "Marketing",
+    "due": "upcoming",
+    "priority": "medium",
+    "status": "open",
+    "assignee": "RL",
+    "createdAt": "2026-09-22T08:30:00.000Z"
+  }
+]

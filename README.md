@@ -1,6 +1,6 @@
-# TaskFlow — Internship Front-End Project
+# TaskFlow — Full-Stack Internship Project
 
-TaskFlow is a responsive project-management dashboard created from a set of original user stories for the internship front-end task.
+TaskFlow is a responsive project-management dashboard backed by a small Express REST API. It implements the original user stories and now persists task creation and completion state in `data/tasks.json`.
 
 ## User stories
 
@@ -12,23 +12,28 @@ TaskFlow is a responsive project-management dashboard created from a set of orig
 - As a project lead, I want to see project progress, team members, and due dates so I can understand delivery health quickly.
 - As a mobile user, I want the dashboard to adapt to smaller screens and provide accessible navigation so I can work from anywhere.
 
-## Features
+## Backend functionality
 
-- Responsive dashboard layout for desktop, tablet, and mobile.
-- Sidebar navigation, workspace switcher, summary cards, task list, activity feed, and project progress cards.
-- Working task filters, completion checkboxes, mobile navigation, and new-task modal.
-- Semantic HTML, keyboard-closeable modal, descriptive labels, and visible focus-friendly controls.
+- `GET /api/health` — service health check.
+- `GET /api/tasks` — returns tasks, with optional `status` and `due` filters.
+- `POST /api/tasks` — validates and persists a new task.
+- `PATCH /api/tasks/:id` — validates and persists completion status.
+- JSON file persistence in `data/tasks.json`, with generated IDs and timestamps.
+- Static hosting serves the existing front-end from the same Express process.
 
 ## Run locally
 
-No build step is required. Open `index.html` in a browser, or serve the folder with any static server:
-
 ```bash
-python3 -m http.server 8000
+npm install
+npm start
 ```
 
-Then visit `http://localhost:8000`.
+Open http://localhost:3000. For development with automatic restarts, use `npm run dev` on Node 18+.
+
+## Screenshots
+
+The `screenshots/` directory contains desktop and mobile visual captures for the submitted application screens.
 
 ## Tech stack
 
-HTML5 · CSS3 · Vanilla JavaScript · Google Fonts
+HTML5 · CSS3 · Vanilla JavaScript · Node.js · Express
