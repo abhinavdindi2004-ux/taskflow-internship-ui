@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TaskFlow is a simple project management dashboard for focused teams." />
+  <title>TaskFlow — Project dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#dashboard" aria-label="TaskFlow home">
+        <span class="brand-mark">✦</span><span>Task<span class="brand-accent">Flow</span></span>
+      </a>
+      <div class="workspace-switcher">
+        <span class="workspace-icon">T</span>
+        <span><small>Workspace</small><strong>Team orbit</strong></span>
+        <button aria-label="Switch workspace">⌄</button>
+      </div>
+      <nav>
+        <p class="nav-label">Workspace</p>
+        <a class="nav-item active" href="#dashboard"><span>▦</span> Overview</a>
+        <a class="nav-item" href="#my-tasks"><span>✓</span> My tasks <b class="count">4</b></a>
+        <a class="nav-item" href="#projects"><span>◫</span> Projects</a>
+        <a class="nav-item" href="#calendar"><span>□</span> Calendar</a>
+        <p class="nav-label">Manage</p>
+        <a class="nav-item" href="#team"><span>♧</span> Team</a>
+        <a class="nav-item" href="#reports"><span>◒</span> Reports</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="nav-item" href="#help"><span>?</span> Help center</a>
+        <div class="profile"><div class="avatar avatar-purple">AD</div><div><strong>Abhinav Dindi</strong><small>Product designer</small></div><button aria-label="Profile menu">•••</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <button class="mobile-menu" aria-label="Open navigation">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><i>/</i><strong>Overview</strong></div>
+        <div class="top-actions"><button class="icon-button" aria-label="Search">⌕</button><button class="icon-button notification" aria-label="Notifications">♢<em></em></button><button class="button button-primary top-add" data-open-modal>＋ <span>New task</span></button></div>
+      </header>
+
+      <section class="page-heading">
+        <div><p class="eyebrow">Tuesday, September 22, 2026</p><h1>Good morning, Abhinav <span>✦</span></h1><p class="subtitle">Here’s what’s happening across your workspace today.</p></div>
+        <button class="button button-secondary" id="filterButton">☷ <span>Filter</span></button>
+      </section>
+
+      <section class="stats-grid" aria-label="Workspace summary">
+        <article class="stat-card"><div class="stat-icon purple">✓</div><div><p>My open tasks</p><h2>12</h2><small class="positive">↑ 8.2% <span>from last week</span></small></div><div class="sparkline purple-line">╱╲╱╲╱╲╱</div></article>
+        <article class="stat-card"><div class="stat-icon orange">◷</div><div><p>Due this week</p><h2>08</h2><small class="warning">↑ 2 tasks <span>from last week</span></small></div><div class="sparkline orange-line">╲╱╲╱╲╱╲</div></article>
+        <article class="stat-card"><div class="stat-icon green">◉</div><div><p>Completed</p><h2>24</h2><small class="positive">↑ 14.5% <span>from last week</span></small></div><div class="sparkline green-line">╱╱╲╱╱╲</div></article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel task-panel">
+          <div class="panel-heading"><div><h2>My tasks</h2><p>Stay on top of your priorities</p></div><a href="#my-tasks">View all <span>→</span></a></div>
+          <div class="task-tabs"><button class="tab active" data-tab="all">All <b>12</b></button><button class="tab" data-tab="today">Today <b>4</b></button><button class="tab" data-tab="upcoming">Upcoming <b>8</b></button></div>
+          <div class="task-list" id="taskList">
+            <label class="task-row" data-due="today"><input type="checkbox" /><span class="checkmark"></span><span class="task-info"><strong>Finalize homepage illustrations</strong><small><i class="dot dot-purple"></i> Website redesign <span>·</span> Today</small></span><span class="priority high">High</span><span class="task-avatar avatar-blue">JM</span></label>
+            <label class="task-row" data-due="today"><input type="checkbox" /><span class="checkmark"></span><span class="task-info"><strong>Review onboarding user flows</strong><small><i class="dot dot-orange"></i> Mobile app <span>·</span> Today</small></span><span class="priority medium">Medium</span><span class="task-avatar avatar-pink">SK</span></label>
+            <label class="task-row" data-due="today"><input type="checkbox" /><span class="checkmark"></span><span class="task-info"><strong>Prepare sprint retrospective</strong><small><i class="dot dot-green"></i> Team operations <span>·</span> Tomorrow</small></span><span class="priority low">Low</span><span class="task-avatar avatar-purple">AD</span></label>
+            <label class="task-row" data-due="upcoming"><input type="checkbox" /><span class="checkmark"></span><span class="task-info"><strong>Write Q3 product update</strong><small><i class="dot dot-blue"></i> Marketing <span>·</span> Sep 25</small></span><span class="priority medium">Medium</span><span class="task-avatar avatar-yellow">RL</span></label>
+          </div>
+          <div class="empty-state" id="emptyState">No tasks in this view.</div>
+        </section>
+
+        <section class="panel activity-panel">
+          <div class="panel-heading"><div><h2>Recent activity</h2><p>Latest updates from your team</p></div><button class="more-button" aria-label="More activity options">•••</button></div>
+          <div class="activity-list"><div class="activity-item"><div class="activity-avatar avatar-pink">SK</div><p><strong>Sarah Kim</strong> completed <b>Set up analytics events</b><small>10 minutes ago · Mobile app</small></p></div><div class="activity-item"><div class="activity-avatar avatar-blue">JM</div><p><strong>James Miller</strong> commented on <b>Homepage illustrations</b><small>42 minutes ago · Website redesign</small></p></div><div class="activity-item"><div class="activity-avatar avatar-yellow">RL</div><p><strong>Rachel Lee</strong> created <b>Q3 product update</b><small>2 hours ago · Marketing</small></p></div><div class="activity-item"><div class="activity-avatar avatar-purple">AD</div><p><strong>You</strong> moved <b>Design system audit</b> to Done<small>Yesterday · Website redesign</small></p></div></div>
+          <button class="activity-link">View all activity <span>→</span></button>
+        </section>
+      </div>
+
+      <section class="panel projects-panel" id="projects"><div class="panel-heading"><div><h2>Projects</h2><p>Track progress across your active projects</p></div><a href="#projects">View all <span>→</span></a></div><div class="project-grid"><article class="project-card"><div class="project-top"><span class="project-badge purple">✦</span><button class="more-button">•••</button></div><h3>Website redesign</h3><p>12 members · Updated today</p><div class="progress-label"><span>Progress</span><strong>72%</strong></div><div class="progress"><i style="width:72%"></i></div><div class="project-footer"><div class="mini-avatars"><span class="avatar-blue">JM</span><span class="avatar-pink">SK</span><span class="avatar-purple">AD</span><span>+9</span></div><span class="due-date">Due Oct 04</span></div></article><article class="project-card"><div class="project-top"><span class="project-badge orange">⌁</span><button class="more-button">•••</button></div><h3>Mobile app</h3><p>8 members · Updated yesterday</p><div class="progress-label"><span>Progress</span><strong>48%</strong></div><div class="progress orange-progress"><i style="width:48%"></i></div><div class="project-footer"><div class="mini-avatars"><span class="avatar-pink">SK</span><span class="avatar-yellow">RL</span><span class="avatar-purple">AD</span><span>+5</span></div><span class="due-date">Due Oct 18</span></div></article><article class="project-card"><div class="project-top"><span class="project-badge green">◈</span><button class="more-button">•••</button></div><h3>Marketing launch</h3><p>5 members · Updated Sep 19</p><div class="progress-label"><span>Progress</span><strong>86%</strong></div><div class="progress green-progress"><i style="width:86%"></i></div><div class="project-footer"><div class="mini-avatars"><span class="avatar-blue">JM</span><span class="avatar-yellow">RL</span><span>+3</span></div><span class="due-date">Due Sep 30</span></div></article></div></section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="taskModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><button class="modal-close" data-close-modal aria-label="Close">×</button><p class="eyebrow">New task</p><h2 id="modalTitle">What needs to get done?</h2><form id="taskForm"><label>Task name<input required id="taskName" placeholder="e.g. Prepare project brief" /></label><label>Project<select id="taskProject"><option>Website redesign</option><option>Mobile app</option><option>Marketing launch</option><option>Team operations</option></select></label><div class="modal-actions"><button type="button" class="button button-secondary" data-close-modal>Cancel</button><button class="button button-primary">Create task</button></div></form></div></div>
+  <div class="toast" id="toast" role="status">Task created successfully ✓</div>
+  <script src="script.js"></script>
+</body>
+</html>
